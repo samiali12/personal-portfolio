@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Ovo, Outfit } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Ovo({
   variable: "--font-ovo",
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased leading-8 overflow-x-hidden`}
       >
+        <SpeedInsights />
         <Toaster />
         {children}
       </body>
