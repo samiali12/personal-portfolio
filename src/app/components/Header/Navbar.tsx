@@ -11,32 +11,18 @@ import Link from "next/link";
 const navItems = [
   {
     id: 1,
-    label: "About me",
+    label: "About",
     href: "#about",
-  },
-  {
-    id: 2,
-    label: "Skills",
-  },
-  {
-    id: 3,
-    label: "Experience",
   },
   {
     id: 4,
     label: "Projects",
-  },
-  {
-    id: 5,
-    label: "Educations",
-  },
-  {
-    id: 6,
-    label: "Testimonials",
+    href: '#project'
   },
   {
     id: 7,
     label: "Contacts",
+     href: '#contact'
   },
 ];
 
@@ -73,7 +59,7 @@ const Navbar = () => {
           <ul
             className={`hidden lg:flex items-center justify-center gap-6 lg:gap-8 bg-white ${
               isScroll ? "" : " bg-opacity-50"
-            } shadow-sm px-12 py-4 rounded-full`}
+            } shadow-sm px-12 py-4 rounded-full transition-opacity duration-1000`}
           >
             {navItems.map((item) => (
               <li className="font-Ovo" key={item.id}>

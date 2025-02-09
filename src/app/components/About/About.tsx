@@ -9,37 +9,94 @@ import {
   SiMongodb,
   SiPrisma,
   SiRedux,
+  SiHtml5,
+  SiTypescript,
+  SiMysql,
 } from "react-icons/si";
+import { FaNodeJs, FaAws } from "react-icons/fa";
+import { DiCss3 } from "react-icons/di";
+import { IoLogoJavascript } from "react-icons/io5";
+import { RiTailwindCssFill } from "react-icons/ri";
 
-const iconsSize = 24;
+//const iconsSize = 24;
 
 const techStack = [
   {
-    icon: <SiNextdotjs className="text-4xl text-gray-900" size={iconsSize} />,
+    icon: <SiNextdotjs className="text-4xl text-gray-900" />,
     name: "Next.js",
+    description: "Full-stack React framework",
   },
   {
-    icon: <SiReact className="text-4xl text-blue-500" size={iconsSize} />,
+    icon: <SiReact className="text-4xl text-blue-500" />,
     name: "React.js",
+    description: "Frontend library for UI",
   },
   {
-    icon: <SiMongodb className="text-4xl text-green-400" size={iconsSize} />,
-    name: "MongoDB",
+    icon: <SiReact className="text-4xl text-blue-500" />,
+    name: "React Native",
+    description: "Cross-platform framework for mobile applications",
   },
   {
-    icon: <SiPrisma className="text-4xl text-black" size={iconsSize} />,
-    name: "Prisma",
+    icon: <FaNodeJs className="text-4xl text-green-700" />,
+    name: "Node.js",
+    description: "Backend runtime for JavaScript",
   },
   {
-    icon: <SiRedux className="text-4xl text-purple-500" size={iconsSize} />,
+    icon: <SiRedux className="text-4xl text-purple-500" />,
     name: "Redux",
+    description: "State management library",
+  },
+  {
+    icon: <SiPrisma className="text-4xl text-black" />,
+    name: "Prisma",
+    description: "ORM for databases",
+  },
+  {
+    icon: <SiMongodb className="text-4xl text-green-400" />,
+    name: "MongoDB",
+    description: "NoSQL database",
+  },
+  {
+    icon: <SiMysql className="text-4xl text-blue-600" />,
+    name: "MySQL",
+    description: "Relational database",
+  },
+  {
+    icon: <SiTypescript className="text-4xl text-blue-500" />,
+    name: "TypeScript",
+    description: "Typed JavaScript",
+  },
+  {
+    icon: <IoLogoJavascript className="text-4xl text-yellow-500" />,
+    name: "JavaScript",
+    description: "Core programming language",
+  },
+  {
+    icon: <SiHtml5 className="text-4xl text-orange-500" />,
+    name: "HTML5",
+    description: "Markup language for web",
+  },
+  {
+    icon: <DiCss3 className="text-4xl text-blue-500" />,
+    name: "CSS3",
+    description: "Styling language for web",
+  },
+  {
+    icon: <RiTailwindCssFill className="text-4xl text-teal-500" />,
+    name: "Tailwind CSS",
+    description: "Utility-first CSS framework",
+  },
+  {
+    icon: <FaAws className="text-4xl text-orange-400" />,
+    name: "AWS",
+    description: "Cloud services platform",
   },
 ];
 
 const About = () => {
   return (
     <div id="about" className="w-full">
-      <div className="relative mx-auto py-10 px-32">
+      <div className="relative mx-auto py-10 px-8 lg:px-32">
         <h4 className="text-center text-lg mb-2 font-Ovo text-rose-500">
           About
         </h4>
@@ -47,7 +104,7 @@ const About = () => {
         <div className="my-20 lg:flex items-center justify-center gap-20">
           <div className="md:flex items-center justify-center">
             <div className="relative inline-block">
-              <div className="w-64 sm:w-80 max-w-none rounded-3xl ">
+              <div className="w-64 sm:w-80 max-w-none rounded-3xl">
                 <Image
                   src={SamiAliImage}
                   alt="Sami Ali"
@@ -75,56 +132,44 @@ const About = () => {
               ))}
             </div>
           </div>
+
           <div className="flex-1 flex-col md:py-6">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-lg lg:text-justify text-center font-Ovo"
+              className="text-lg text-center lg:text-justify font-Ovo"
             >
-              Hi, Im{" "}
-              <span className="text-rose-500 font-semibold">Sami Ali</span>, a
-              Full Stack Developer skilled in **Next.js, React.js, and
-              Node.js**. I craft scalable, high-performance web applications
-              with clean architecture and seamless user experiences.
-            </motion.p>
+              Hi, I&apos;m <span className="text-rose-500 font-semibold">Sami Ali</span>, a passionate Full Stack Developer with expertise in building scalable, high-performance web applications. I specialize in modern JavaScript frameworks like Next.js, React.js, and Node.js, ensuring a seamless blend of functionality and design.
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="text-lg text-center lg:text-justify font-Ovo mb-6"
-            >
-              Experienced in **Redux, Prisma, MongoDB, and AWS**, I specialize
-              in building secure and efficient backends while delivering
-              intuitive UI solutions.
+              With a strong foundation in backend technologies such as Prisma, MongoDB, MySQL, and AWS, I craft secure, efficient, and well-architected systems that power intuitive digital experiences. Whether it&apos; designing dynamic UIs, managing state efficiently with Redux, or optimizing performance, I focus on delivering clean, maintainable code that stands the test of time.
             </motion.p>
-
-            <div className="w-full flex flex-col my-10">
-              <h4 className="mb-4 text-lg font-semibold text-rose-400 lg:text-left text-center">
-                Tools & Technology
-              </h4>
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.8, delay: 0.8 }}
-                className="flex flex-wrap lg:justify-start lg:items-start items-center justify-center gap-6"
-              >
-                {techStack.map((tech, index) => (
-                  <motion.div
-                    whileHover={{ scale: 1.3 }}
-                    key={index}
-                    className="relative group border border-rose-500 p-2 rounded-md shadow-md transition-all duration-300"
-                  >
-                    {tech.icon}
-                    <span className="absolute bottom-12 left-1/2 transform -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
-                      {tech.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </motion.div>
-            </div>
           </div>
+        </div>
+        <div className="w-full flex flex-col my-10">
+          <h4 className="mb-8 text-xl font-semibold text-rose-400 lg:text-left text-center">
+            Essential Tools & Technologies I Used
+          </h4>
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 "
+          >
+            {techStack.map((tech, index) => (
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                key={index}
+                className="relative flex items-center gap-6 border border-rose-500 p-4 rounded-md shadow-md transition-all duration-300 text-center"
+              >
+                {tech.icon}
+                <div className="text-start">
+                  <p className="font-semibold">{tech.name}</p>
+                  <p className="text-sm text-gray-600">{tech.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </div>
