@@ -1,13 +1,43 @@
 "use client";
-
-import { projectsData } from "@/app/utils/projects";
 import Image from "next/image";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { client } from "@/app/sanity";
+import { urlFor } from "@/app/utils/helper";
+
+type ProjectTypes = {
+  _id: string;
+  title: string;
+  description: string;
+  skills: string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  thumbnail: any;
+  images: unknown[];
+};
 
 const Project = () => {
+  const [projects, setProjects] = useState<ProjectTypes[]>([]);
+  const [open, setOpen] = useState(false);
+  const [selectedProject, setSelectedProject] = useState<ProjectTypes | null>(
+    null
+  );
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const data = await client.fetch(`*[_type == "project"]`);
+      setProjects(data);
+    };
+    fetchData();
+  });
+
+  const handleProjectClick = (project: ProjectTypes) => {
+    setSelectedProject(project);
+    setOpen(true);
+  };
+
   return (
     <div id="project" className="w-full">
+      {open && <ProjectDetailsDialog project={selectedProject} />}
       <div className="relative mx-auto py-10 px-8 lg:px-32">
         <h4 className="text-center text-lg mb-2 font-Ovo text-rose-500">
           Projects
@@ -18,30 +48,45 @@ const Project = () => {
           apps. Here are some of my projects.
         </p>
         <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-8 my-10">
-  {projectsData.map((project) => (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      whileHover={{ scale: 1.05 }}
-      transition={{ duration: 0.3 }}
-      key={project.id}
-      className="bg-white shadow-lg rounded-2xl overflow-hidden flex flex-col items-center p-6 transition-transform duration-300 cursor-pointer"
-    >
-      <div className="w-full">
-        <Image
-          src={project.thumbnail}
-          alt={project.title}
-          className="w-full h-56 object-cover rounded-2xl"
-        />
-      </div>
-      <h2 className="text-base font-semibold text-justify mt-4">{project.title}</h2>
-    </motion.div>
-  ))}
-</div>
-
+          {projects.map((project) => (
+            <motion.div
+              onClick={() => handleProjectClick(project)}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              key={project._id}
+              className="bg-white shadow-lg rounded-2xl overflow-hidden flex flex-col items-center p-6 transition-transform duration-300 cursor-pointer"
+            >
+              <div className="w-full">
+                <Image
+                  src={urlFor(project.thumbnail).url()}
+                  alt={project.title}
+                  width={400}
+                  height={224}
+                  className="w-full h-56 object-cover rounded-2xl"
+                />
+              </div>
+              <h2 className="text-base font-semibold text-justify mt-4">
+                {project.title}
+              </h2>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </div>
   );
 };
 
 export default Project;
+
+interface ProjectDetailsDialogProps {
+  project: ProjectTypes | null;
+}
+
+const ProjectDetailsDialog = ({ project }: ProjectDetailsDialogProps) => {
+  console.log("Selected Project ===> ", project);
+  return <div>
+    <h1>Project Details</h1>
+  </div>;
+};
