@@ -63,7 +63,7 @@ const Project = () => {
               whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3 }}
               key={project._id}
-              className="bg-white shadow-lg rounded-2xl overflow-hidden flex flex-col items-center p-6 transition-transform duration-300 cursor-pointer"
+              className="bg-white dark:bg-transparent dark:border dark:border-rose-400 shadow-lg rounded-2xl overflow-hidden flex flex-col items-center p-6 transition-transform duration-300 cursor-pointer"
             >
               <div className="w-full">
                 <Image

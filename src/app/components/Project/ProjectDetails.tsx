@@ -28,13 +28,13 @@ const ProjectDetailsDialog = ({
 }: ProjectDetailsDialogProps) => {
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
-      <div className="bg-white max-w-[85%] max-h-[90vh] m-4 p-8 rounded-md shadow-lg relative overflow-y-auto">
+      <div className="bg-white dark:bg-[#020817] max-w-[85%] max-h-[90vh] m-4 p-8 rounded-md shadow-lg relative overflow-y-auto">
         <div className="flex items-center justify-between">
-          <h1 className="text-3xl font-Ovo text-slate-900 font-bold">
+          <h1 className="text-3xl font-Ovo text-slate-900 font-bold dark:text-slate-100">
             {project?.title}
           </h1>
           <button onClick={() => setOpen(false)} className="p-4">
-            <MdClose className="text-2xl text-gray-500" />
+            <MdClose className="text-2xl text-slate-500 dark:text-slate-100" />
           </button>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 overflow-auto mt-8 pt-4">
@@ -49,7 +49,7 @@ const ProjectDetailsDialog = ({
                 {project?.skills.map((skill, index) => (
                   <span
                     key={index}
-                    className="bg-slate-200 text-slate-900 px-3 py-1 rounded-lg mr-2"
+                    className="bg-slate-200 dark:bg-slate-700 text-slate-900 dark:text-slate-100 px-3 py-1 rounded-lg mr-2"
                   >
                     {skill}
                   </span>

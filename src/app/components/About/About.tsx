@@ -102,7 +102,7 @@ const About = () => {
         </h4>
         <h1 className="text-center text-5xl font-Ovo">Introduction</h1>
         <div className="my-20 lg:flex items-center justify-center gap-20">
-          <div className="md:flex items-center justify-center">
+          <div className="flex items-center justify-center py-10">
             <div className="relative inline-block">
               <div className="w-64 sm:w-80 max-w-none rounded-3xl">
                 <Image
@@ -147,7 +147,7 @@ const About = () => {
           </div>
         </div>
         <div className="w-full flex flex-col my-10">
-          <h4 className="mb-8 text-xl font-semibold text-rose-400 lg:text-left text-center">
+          <h4 className="mb-8 text-xl font-semibold text-rose-600 lg:text-left text-center">
             Essential Tools & Technologies I Used
           </h4>
           <motion.div
@@ -165,7 +165,7 @@ const About = () => {
                 {tech.icon}
                 <div className="text-start">
                   <p className="font-semibold">{tech.name}</p>
-                  <p className="text-sm text-gray-600">{tech.description}</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-300">{tech.description}</p>
                 </div>
               </motion.div>
             ))}

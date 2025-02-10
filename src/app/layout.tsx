@@ -3,7 +3,8 @@ import { Ovo, Outfit } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
+import ThemeProvider from "./context/ThemeContext";
 
 const geistSans = Ovo({
   variable: "--font-ovo",
@@ -32,10 +33,12 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased leading-8 overflow-x-hidden`}
       >
-        <SpeedInsights />
-        <Analytics/>
-        <Toaster />
-        {children}
+        <ThemeProvider>
+          <SpeedInsights />
+          <Analytics />
+          <Toaster />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

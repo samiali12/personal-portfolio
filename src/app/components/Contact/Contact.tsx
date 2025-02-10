@@ -47,7 +47,7 @@ const Contact = () => {
         <div className="flex items-center justify-center my-10">
           <form
             onSubmit={handleSubmit}
-            className="w-full max-w-2xl shadow-lg border rounded-lg p-8 space-y-6 bg-white"
+            className="w-full max-w-2xl shadow-lg border rounded-lg p-8 space-y-6 bg-white dark:bg-inherit"
           >
             {/* Name Field */}
             <div className="flex flex-col w-full">
@@ -60,7 +60,7 @@ const Contact = () => {
                 type="text"
                 onChange={handleChange}
                 placeholder="Enter your full name"
-                className="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-rose-400 outline-none transition-all duration-300"
+                className="dark:bg-inherit border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-rose-400 outline-none transition-all duration-300"
               />
             </div>
 
@@ -75,7 +75,7 @@ const Contact = () => {
                 type="email"
                 onChange={handleChange}
                 placeholder="example@email.com"
-                className="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-rose-400 outline-none transition-all duration-300"
+                className="dark:bg-inherit border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-rose-400 outline-none transition-all duration-300"
               />
             </div>
 
@@ -90,7 +90,7 @@ const Contact = () => {
                 type="text"
                 onChange={handleChange}
                 placeholder="Enter the subject"
-                className="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-rose-400 outline-none transition-all duration-300"
+                className="dark:bg-inherit border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-rose-400 outline-none transition-all duration-300"
               />
             </div>
 
@@ -105,7 +105,7 @@ const Contact = () => {
                 rows={4}
                 onChange={handleChange}
                 placeholder="Write your message here..."
-                className="border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-rose-400 outline-none transition-all duration-300 resize-none"
+                className="dark:bg-inherit border border-gray-300 rounded-md px-4 py-2 focus:ring-2 focus:ring-rose-400 outline-none transition-all duration-300 resize-none"
               ></textarea>
             </div>
 
