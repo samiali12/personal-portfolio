@@ -25,7 +25,7 @@ const Project = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const data = await client.fetch(`*[_type == "project"]`);
+      const data = await client.fetch(`*[_type == "projects"]`);
       setProjects(data);
     };
     fetchData();
