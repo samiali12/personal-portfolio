@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { client } from "@/app/sanity";
 import { urlFor } from "@/app/utils/helper";
+import ProjectDetailsDialog from "./ProjectDetails";
 
 type ProjectTypes = {
   _id: string;
@@ -37,7 +38,13 @@ const Project = () => {
 
   return (
     <div id="project" className="w-full">
-      {open && <ProjectDetailsDialog project={selectedProject} />}
+      {open && (
+        <ProjectDetailsDialog
+          project={selectedProject}
+          open={open}
+          setOpen={setOpen}
+        />
+      )}
       <div className="relative mx-auto py-10 px-8 lg:px-32">
         <h4 className="text-center text-lg mb-2 font-Ovo text-rose-500">
           Projects
@@ -79,14 +86,3 @@ const Project = () => {
 };
 
 export default Project;
-
-interface ProjectDetailsDialogProps {
-  project: ProjectTypes | null;
-}
-
-const ProjectDetailsDialog = ({ project }: ProjectDetailsDialogProps) => {
-  console.log("Selected Project ===> ", project);
-  return <div>
-    <h1>Project Details</h1>
-  </div>;
-};
